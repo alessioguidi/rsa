@@ -615,9 +615,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MyApp = (function () {
-    function MyApp(platform, statusBar, splashScreen, menu) {
+    function MyApp(statusBar, splashScreen, menu, platform) {
         var _this = this;
         this.menu = menu;
+        this.platform = platform;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_10__pages_home_home__["a" /* HomePage */];
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
@@ -632,6 +633,10 @@ var MyApp = (function () {
                     _this.navCtrl.pop();
                 }
                 else {
+                    var view = _this.navCtrl.getActive();
+                    if (view.component.name == 'page-home') {
+                        _this.platform.exitApp(); //Exit from app
+                    }
                     //don't do anything
                 }
             });
@@ -667,15 +672,20 @@ var MyApp = (function () {
             params = {};
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__pages_login_login__["a" /* LoginPage */]);
     };
+    MyApp.prototype.exitapp = function (params) {
+        if (!params)
+            params = {};
+        this.platform.exitApp();
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "navCtrl", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\app\app.html"*/'<ion-menu [content]="mainContent">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Menu\n      </ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content id="side-menu21">\n    <ion-list id="menu-list1">\n      <ion-item-divider color="light" id="menu-list-item-divider1">\n        Servizi\n      </ion-item-divider>\n      <ion-item color="none" menuClose="" on-click="goToHome()" id="menu-list-item1">\n        Home\n        <ion-icon name="home" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="goToTrackingSystem()" id="menu-list-item2">\n        Tracking system\n        <ion-icon name="cloud" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="goToCertificati()" id="menu-list-item5">\n        Certificati\n        <ion-icon name="document" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="goToMagazzino()" id="menu-list-item3">\n        Magazzino\n        <ion-icon name="barcode" item-right></ion-icon>\n      </ion-item>\n      <ion-item-divider color="light" id="menu-list-item-divider2">\n        Configurazione\n      </ion-item-divider>\n      <ion-item color="none" menuClose="" on-click="goToLogin()" id="menu-list-item4">\n        Login\n        <ion-icon name="contact" item-right></ion-icon>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n<ion-nav #mainContent [root]="rootPage"></ion-nav>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\app\app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\app\app.html"*/'<ion-menu [content]="mainContent">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Menu\n      </ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content id="side-menu21">\n    <ion-list id="menu-list1">\n      <ion-item-divider color="light" id="menu-list-item-divider1">\n        Servizi\n      </ion-item-divider>\n      <ion-item color="none" menuClose="" on-click="goToHome()" id="menu-list-item1">\n        Home\n        <ion-icon name="home" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="goToTrackingSystem()" id="menu-list-item2">\n        Tracking system\n        <ion-icon name="cloud" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="goToCertificati()" id="menu-list-item5">\n        Certificati\n        <ion-icon name="document" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="goToMagazzino()" id="menu-list-item3">\n        Magazzino\n        <ion-icon name="barcode" item-right></ion-icon>\n      </ion-item>\n      <ion-item-divider color="light" id="menu-list-item-divider2">\n        Configurazione\n      </ion-item-divider>\n      <ion-item color="none" menuClose="" on-click="goToLogin()" id="menu-list-item4">\n        Login\n        <ion-icon name="contact" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="exitApp()" id="menu-list-item5">\n        Esci\n        <ion-icon name="close" item-right></ion-icon>\n      </ion-item>      \n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n<ion-nav #mainContent [root]="rootPage"></ion-nav>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\app\app.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_4__providers_enumera_request__["a" /* EnumeraService */]]
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _e || Object])
     ], MyApp);
     return MyApp;
     var _a, _b, _c, _d, _e;
