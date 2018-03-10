@@ -504,19 +504,6 @@ var HomePage = (function () {
             console.log('getData completed');
         });
     };
-    HomePage.prototype.login = function () {
-        // this.storage.remove('sessionName');
-        this.enumeraService.requestStr = '';
-        this.enumeraService.doRequest();
-        this.enumeraService.getDataSet().subscribe(function (result) {
-            console.log(result);
-            //  this.storage.set('sessionName', result.sessionName);
-        }, function (err) {
-            console.error("Error : " + err);
-        }, function () {
-            console.log('getData completed');
-        });
-    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Home\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page1">\n    <h2>RSAPP</h2><p>La piattaforma mobile RSACCIAI.</p>\n    <ion-spinner name="circles" *ngIf = "slides === 0"></ion-spinner>\n    <ion-slides pager>\n      <ion-slide *ngFor="let slide of slides"> \n        <img src="{{slide.URL}}">\n      </ion-slide>\n    </ion-slides>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\home\home.html"*/
@@ -775,26 +762,6 @@ var EnumeraService = (function () {
         this.config = JSON.parse(localStorage.getItem("config"));
         this.http = phttp;
     }
-    EnumeraService.prototype.doRequest_by_session = function () {
-        var _this = this;
-        this.storage.get('sessionName').then(function (val) {
-            //console.log('Your session is', val);
-            _this.http.setHeader(_this.config.server, 'cookie', "JXSESSNAME=" + val);
-            _this.jxsession = val;
-        });
-        console.log(this.jxsession);
-        if (localStorage.getItem("config") != null) {
-            if (this.jxsession != null) {
-                this.baseUrl = this.config.server + '/enumerando.php?JXSESSNAME=' + this.jxsession + '&pagesize=10000&loglevel=1&onlydata=1&';
-                this.response = this.http.get(this.baseUrl.concat(this.requestStr)).map(function (res) { return res.json(); });
-            }
-            else {
-                this.baseUrl = this.config.server + '/enumerando.php?user=' + this.config.username + '&password=' + this.config.password + '&db=' + this.config.area;
-                this.response = this.http.get(this.baseUrl.concat(this.requestStr)).map(function (res) { return res.json(); });
-            }
-            console.log("Richiesta http: " + this.baseUrl.concat(this.requestStr));
-        }
-    };
     EnumeraService.prototype.doRequest = function () {
         this.baseUrl = this.config.server + '/enumerando.php?user=' + this.config.username + '&password=' + this.config.password + '&db=' + this.config.area + '&pagesize=10000&loglevel=1&onlydata=1&';
         this.response = this.http.get(this.baseUrl.concat(this.requestStr)).map(function (res) { return res.json(); });
