@@ -6,7 +6,7 @@ webpackJsonp([0],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,9 +53,10 @@ var LoginPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\login\login.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Login\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page5">\n  <form id="login-form1">\n    <ion-list id="login-list2">\n      <ion-item id="login-input1">\n        <ion-label stacked>\n          Server\n        </ion-label>\n        <ion-input type="text" required [(ngModel)]="config.server" name="server"></ion-input>\n      </ion-item>\n      <ion-item id="login-input3">\n        <ion-label stacked>\n          Area\n        </ion-label>\n        <ion-input type="text" required [(ngModel)]="config.area" name="area"></ion-input>\n      </ion-item>\n      <ion-item id="login-input4">\n        <ion-label stacked>\n          Username\n        </ion-label>\n        <ion-input type="text" required [(ngModel)]="config.username" name="username"></ion-input>\n      </ion-item>\n      <ion-item id="login-input2">\n        <ion-label stacked>\n          Password\n        </ion-label>\n        <ion-input type="password" [(ngModel)]="config.password" name="password"></ion-input>\n      </ion-item>\n    </ion-list>\n    <div class="spacer" style="height:40px;" id="login-spacer1"></div>\n    <button id="login-button1" ion-button color="stable" block (click)=\'saveConfig()\'>\n      Log in\n    </button>\n  </form>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\login\login.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object])
     ], LoginPage);
     return LoginPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -102,7 +103,7 @@ webpackEmptyAsyncContext.id = 156;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackingSystemPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -122,9 +123,10 @@ var TrackingSystemPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-tracking-system',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\tracking-system\tracking-system.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Tracking System\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page2">\n  <form id="trackingSystem-form3">\n    <ion-searchbar placeholder="inserire il codice lotto" name="" id="trackingSystem-search1"></ion-searchbar>\n  </form>\n  <ion-card id="trackingSystem-card22">\n    <ion-list>\n      <ion-item color="none" id="trackingSystem-list-item14">\n        <ion-thumbnail item-left>\n          <img src="assets/img/Z1c1CMUMTGS0IN72H7NW_1619503837_b8fcdb1da4_z.jpg" />\n        </ion-thumbnail>\n        <h2>\n          Codice articolo\n        </h2>\n      </ion-item>\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>\n      </div>\n      <ion-item id="trackingSystem-list-item-container5">\n        <div id="trackingSystem-markdown6" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Lotto di prodzione: xxx\n          </p>\n        </div>\n        <div id="trackingSystem-markdown7" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Data di prodzione: 12.12.12\n          </p>\n        </div>\n        <div id="trackingSystem-markdown8" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Numero pezzi prodotti: 1000\n          </p>\n        </div>\n        <div id="trackingSystem-markdown9" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Numero pezzi in giacenza: 650\n          </p>\n        </div>\n      </ion-item>\n      <ion-item-divider color="light" id="trackingSystem-list-item-divider4">\n        Documenti\n      </ion-item-divider>\n      <ion-item color="none" id="trackingSystem-list-item16">\n        Scheda tecnica\n        <ion-icon name="document" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" id="trackingSystem-list-item17">\n        Certificato di colata\n        <ion-icon name="document" item-right></ion-icon>\n      </ion-item>\n      <ion-item-divider color="light" id="trackingSystem-list-item-divider5">\n        Pezzi\n      </ion-item-divider>\n      <ion-item color="none" id="trackingSystem-list-item18">\n        Matricola aaa\n        <ion-note item-right></ion-note>\n      </ion-item>\n      <ion-item color="none" id="trackingSystem-list-item19">\n        Matricola bbb\n        <ion-note item-right></ion-note>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\tracking-system\tracking-system.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object])
     ], TrackingSystemPage);
     return TrackingSystemPage;
+    var _a;
 }());
 
 //# sourceMappingURL=tracking-system.js.map
@@ -137,7 +139,7 @@ var TrackingSystemPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CertificatiPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(113);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -154,12 +156,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CertificatiPage = (function () {
-    function CertificatiPage(navCtrl, enumeraService, loadingController, inappbrowser) {
+    function CertificatiPage(navCtrl, enumeraService, loadingController, inappbrowser, alertCtrl) {
         this.navCtrl = navCtrl;
         this.enumeraService = enumeraService;
         this.loadingController = loadingController;
         this.inappbrowser = inappbrowser;
+        this.alertCtrl = alertCtrl;
         this.getdata('');
     }
     CertificatiPage.prototype.getdata = function (folder) {
@@ -168,7 +172,14 @@ var CertificatiPage = (function () {
         this.enumeraService.requestStr = 'prgname=getEnuCertificati&param[folder]=' + folder;
         this.enumeraService.doRequest();
         this.enumeraService.getDataSet().subscribe(function (result) {
-            _this.items = result;
+            if (result != null) {
+                if (result["error"] != 'auth-error') {
+                    _this.items = result;
+                }
+                else {
+                    _this.presentAlert("Attenzione", "Utente non autorizzato a questa funzione. Contattare il customer service per l'attivazione");
+                }
+            }
             // console.log(result);
         }, function (err) {
             console.error("Error : " + err);
@@ -203,11 +214,19 @@ var CertificatiPage = (function () {
     CertificatiPage.prototype.download = function (item) {
         var browser = this.inappbrowser.create(item.url, '_blank', 'location=yes');
     };
+    CertificatiPage.prototype.presentAlert = function (titolo, messaggio) {
+        var alert = this.alertCtrl.create({
+            title: titolo,
+            subTitle: messaggio,
+            buttons: ['Ok']
+        });
+        alert.present();
+    };
     CertificatiPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-certificati',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\certificati\certificati.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Certificati\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page3">\n  <ion-list id="certificati-list3">\n      <button ion-item text-wrap *ngFor="let item of items" (click)="subDir(item)">\n        \n          <ion-row>\n            <ion-col width-80><h2>{{item.nome}}</h2>\n            <p>{{item.anno}}</p>\n            </ion-col>\n           <ion-col>\n            <ion-badge item-right></ion-badge>\n            </ion-col>\n          </ion-row>\n        </button>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\certificati\certificati.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], CertificatiPage);
     return CertificatiPage;
 }());
@@ -222,7 +241,7 @@ var CertificatiPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MagazzinoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__articolo_articolo__ = __webpack_require__(202);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -239,12 +258,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MagazzinoPage = (function () {
-    function MagazzinoPage(navCtrl, enumeraService, loadingController, params) {
+    function MagazzinoPage(navCtrl, enumeraService, loadingController, params, alertCtrl) {
         this.navCtrl = navCtrl;
         this.enumeraService = enumeraService;
         this.loadingController = loadingController;
         this.params = params;
+        this.alertCtrl = alertCtrl;
         this.searchTerm = '';
         this.getdata('');
     }
@@ -254,7 +275,14 @@ var MagazzinoPage = (function () {
         this.enumeraService.requestStr = 'prgname=getCatalogo&viewname=catalogo&param[flg_matricole]=1&param[flg_solo_giacenti]=1&param[codice]=' + this.searchTerm;
         this.enumeraService.doRequest();
         this.enumeraService.getDataSet().subscribe(function (result) {
-            _this.items = result;
+            if (result != null) {
+                if (result["error"] != 'auth-error') {
+                    _this.items = result;
+                }
+                else {
+                    _this.presentAlert("Attenzione", "Utente non autorizzato a questa funzione. Contattare il customer service per l'attivazione");
+                }
+            }
         }, function (err) {
             console.error("Error : " + err);
         }, function () {
@@ -286,11 +314,19 @@ var MagazzinoPage = (function () {
     MagazzinoPage.prototype.hideLoading = function () {
         this.loading.dismiss();
     };
+    MagazzinoPage.prototype.presentAlert = function (titolo, messaggio) {
+        var alert = this.alertCtrl.create({
+            title: titolo,
+            subTitle: messaggio,
+            buttons: ['Ok']
+        });
+        alert.present();
+    };
     MagazzinoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-magazzino',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\magazzino\magazzino.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Magazzino\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page4">\n  <ion-list >\n    <ion-searchbar [(ngModel)]="searchTerm" (change)="getdata()"></ion-searchbar>\n    <button ion-item text-wrap *ngFor="let item of items" (click)="vediArticolo(item)">\n      <ion-row>\n          <ion-col>\n        <h2>{{item.CODART}}</h2>\n        <p>{{item.DESCRIZIONE}}</p>\n        <p>Giacenza: {{item.GIACENZA_UM1}}</p>\n          </ion-col>\n      </ion-row> \n    </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\magazzino\magazzino.html"*/
+            selector: 'page-magazzino',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\magazzino\magazzino.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Magazzino\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page4">\n  <ion-list >\n    <ion-searchbar [(ngModel)]="searchTerm" (change)="getdata()"></ion-searchbar>\n    <button ion-item text-wrap *ngFor="let item of items" (click)="vediArticolo(item)">\n      <ion-row>\n          <ion-col>\n        <h2>{{item.CODART}}</h2>\n        <p>{{item.DESCRIZIONE}}</p>\n        <p>Giacenza: {{item.UM_1}} {{item.GIACENZA_UM1}}</p>\n          </ion-col>\n      </ion-row> \n    </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\magazzino\magazzino.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], MagazzinoPage);
     return MagazzinoPage;
 }());
@@ -305,8 +341,9 @@ var MagazzinoPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArticoloPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_email_composer__ = __webpack_require__(281);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -319,18 +356,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ArticoloPage = (function () {
-    function ArticoloPage(navCtrl, params, enumeraService) {
+    function ArticoloPage(navCtrl, params, enumeraService, emailComposer) {
         this.navCtrl = navCtrl;
         this.params = params;
         this.enumeraService = enumeraService;
+        this.emailComposer = emailComposer;
         this.items_details = 0;
         this.item = params.get('item');
         this.enumeraService.requestStr = 'prgname=getArticolo&param[codice]=' + this.item.CODART;
         this.enumeraService.doRequest();
         this.getdata();
     }
-    ArticoloPage_1 = ArticoloPage;
     ArticoloPage.prototype.getdata = function () {
         var _this = this;
         this.enumeraService.getDataSet().subscribe(function (result) {
@@ -342,16 +380,23 @@ var ArticoloPage = (function () {
         });
     };
     ArticoloPage.prototype.prenotaMatricola = function (item) {
-        this.navCtrl.push(ArticoloPage_1, { item: item });
+        var email = {
+            to: 'support@ltamirasoftware.com',
+            cc: 'support@ltamirasoftware.com',
+            subject: 'Richiesta prenotazione matricola',
+            body: item.matricola + " " + item.dimensioni + " " + item.giacenza,
+            isHtml: true
+        };
+        // Send a text message using default options
+        this.emailComposer.open(email);
     };
-    ArticoloPage = ArticoloPage_1 = __decorate([
+    ArticoloPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\articolo\articolo.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      {{item.CODART}}\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n<ion-card>\n\n\n\n\n\n\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        {{item.CODART}}\n\n      \n\n      <p>\n\n        {{item.DESCRIZIONE}}\n\n      </p>\n\n      <p>Categoria: {{item.DESCRIZIONE_CATEGORIA}}</p>\n\n      <p>Gruppo: {{item.DESCRIZIONE_GRUPPO}}</p>\n\n      <p>Sottogruppo: {{item.DESCRIZIONE_SOTTOGRUPPO}}</p>      \n\n      <p>Classe: {{item.DESCRIZIONE_CLASSE}}</p>      \n\n      <p>Marca: {{item.DESCRIZIONE_MARCA}}</p>\n\n      </ion-card-title>\n\n    \n\n    </ion-card-content>\n\n    <img src="{{item.IMAGE_URL}}" imageViewer />\n\n    <ion-list >\n\n      <ion-list-header>Pezzi disponibili</ion-list-header>\n\n      <ion-spinner name="circles" *ngIf = "items_details === 0"></ion-spinner>\n\n      <ion-item text-wrap *ngFor="let itemd of items_details" >\n\n        <ion-row>\n\n          <ion-col width-80><h2>{{itemd.matricola}}</h2>\n\n          <p>Dimensioni: {{itemd.dimensioni}}</p>\n\n          <p>Giacenza: {{itemd.giacenza}}</p>\n\n          <button ion-button (click)="prenotaMatricola(itemd)">Prenota\n\n            </button>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\articolo\articolo.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_email_composer__["a" /* EmailComposer */]])
     ], ArticoloPage);
     return ArticoloPage;
-    var ArticoloPage_1;
 }());
 
 //# sourceMappingURL=articolo.js.map
@@ -364,7 +409,7 @@ var ArticoloPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MatricolaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -384,9 +429,10 @@ var MatricolaPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-matricola',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\matricola\matricola.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Matricola\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page7">\n  <ion-card id="matricola-card21">\n    <ion-list>\n      <ion-item color="none" id="matricola-list-item10">\n        XXXYYYY\n        <ion-icon name="barcode" item-right></ion-icon>\n      </ion-item>\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>\n      </div>\n      <ion-item id="matricola-list-item-container3">\n        <div id="matricola-markdown4" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Lotto di provenienza: cccc&lt;br&gt;Misure: 30x200\n          </p>\n        </div>\n      </ion-item>\n      <ion-item color="assertive" id="matricola-list-item11">\n        <ion-icon name="musical-notes" item-left></ion-icon>\n        Play Song\n      </ion-item>\n    </ion-list>\n  </ion-card>\n  <button id="matricola-button3" ion-button color="positive" block>\n    Prenota\n  </button>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\matricola\matricola.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object])
     ], MatricolaPage);
     return MatricolaPage;
+    var _a;
 }());
 
 //# sourceMappingURL=matricola.js.map
@@ -399,7 +445,7 @@ var MatricolaPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -462,10 +508,9 @@ var HomePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Home\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page1">\n    <h2>RSAPP</h2><p>Benvenuto nella APP mobile di RSACCIAI</p>\n   <P>{{testo_home}}</P>\n    <ion-spinner name="circles" *ngIf = "slides === 0"></ion-spinner>\n    <ion-slides pager>\n      <ion-slide *ngFor="let slide of slides"> \n        <img src="{{slide.URL}}">\n      </ion-slide>\n    </ion-slides>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -494,7 +539,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(204);
@@ -581,7 +626,7 @@ var AppModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_enumera_request__ = __webpack_require__(40);
