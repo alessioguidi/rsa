@@ -6,7 +6,7 @@ webpackJsonp([0],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -103,7 +103,9 @@ webpackEmptyAsyncContext.id = 156;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackingSystemPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(113);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -115,18 +117,83 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
 var TrackingSystemPage = (function () {
-    function TrackingSystemPage(navCtrl) {
+    function TrackingSystemPage(navCtrl, enumeraService, loadingController, params, alertCtrl, inappbrowser) {
         this.navCtrl = navCtrl;
+        this.enumeraService = enumeraService;
+        this.loadingController = loadingController;
+        this.params = params;
+        this.alertCtrl = alertCtrl;
+        this.inappbrowser = inappbrowser;
+        this.search3 = '';
+        this.search1 = "";
+        this.search2 = "";
+        this.search3 = "";
     }
+    TrackingSystemPage.prototype.getdata = function (search1, search2, search3) {
+        var _this = this;
+        this.showLoading();
+        this.enumeraService.requestStr = 'prgname=getLottoProduzione&param[cod_articolo]=' + this.search1 + '&param[cod_lotto]=' + this.search2;
+        this.enumeraService.doRequest();
+        this.enumeraService.getDataSet().subscribe(function (result) {
+            if (result != null) {
+                if (result["error"] != 'auth-error' && result["error"] != null) {
+                    _this.presentAlert('Attenzione', result["error"]);
+                }
+                else if (result["error"] != 'auth-error') {
+                    _this.items = result;
+                    _this.matricole = _this.items[0].matricole;
+                    _this.documenti = _this.items[0].documenti;
+                }
+                else {
+                    _this.presentAlert("Attenzione", "Utente non autorizzato a questa funzione. Contattare il customer service per l'attivazione");
+                }
+            }
+        }, function (err) {
+            console.error("Error : " + err);
+        }, function () {
+            console.log('getData completed');
+            console.log(_this.items);
+            //this.loading.dismiss();
+            _this.hideLoading();
+        });
+    };
+    TrackingSystemPage.prototype.showLoading = function () {
+        var _this = this;
+        this.loading = this.loadingController.create({
+            content: "Please wait..."
+        });
+        this.loading.present();
+        setTimeout(function () {
+            _this.loading.dismiss();
+        }, 20000);
+    };
+    TrackingSystemPage.prototype.hideLoading = function () {
+        this.loading.dismiss();
+    };
+    TrackingSystemPage.prototype.presentAlert = function (titolo, messaggio) {
+        var alert = this.alertCtrl.create({
+            title: titolo,
+            subTitle: messaggio,
+            buttons: ['Ok']
+        });
+        alert.present();
+    };
+    TrackingSystemPage.prototype.scaricaFile = function (documento) {
+        var browser = this.inappbrowser.create(documento.url, '_blank', 'location=yes');
+    };
     TrackingSystemPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-tracking-system',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\tracking-system\tracking-system.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Tracking System\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page2">\n  <form id="trackingSystem-form3">\n    <ion-searchbar placeholder="inserire il codice lotto" name="" id="trackingSystem-search1"></ion-searchbar>\n  </form>\n  <ion-card id="trackingSystem-card22">\n    <ion-list>\n      <ion-item color="none" id="trackingSystem-list-item14">\n        <ion-thumbnail item-left>\n          <img src="assets/img/Z1c1CMUMTGS0IN72H7NW_1619503837_b8fcdb1da4_z.jpg" />\n        </ion-thumbnail>\n        <h2>\n          Codice articolo\n        </h2>\n      </ion-item>\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>\n      </div>\n      <ion-item id="trackingSystem-list-item-container5">\n        <div id="trackingSystem-markdown6" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Lotto di prodzione: xxx\n          </p>\n        </div>\n        <div id="trackingSystem-markdown7" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Data di prodzione: 12.12.12\n          </p>\n        </div>\n        <div id="trackingSystem-markdown8" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Numero pezzi prodotti: 1000\n          </p>\n        </div>\n        <div id="trackingSystem-markdown9" class="show-list-numbers-and-dots">\n          <p style="margin-top:0px;color:#000000;">\n            Numero pezzi in giacenza: 650\n          </p>\n        </div>\n      </ion-item>\n      <ion-item-divider color="light" id="trackingSystem-list-item-divider4">\n        Documenti\n      </ion-item-divider>\n      <ion-item color="none" id="trackingSystem-list-item16">\n        Scheda tecnica\n        <ion-icon name="document" item-right></ion-icon>\n      </ion-item>\n      <ion-item color="none" id="trackingSystem-list-item17">\n        Certificato di colata\n        <ion-icon name="document" item-right></ion-icon>\n      </ion-item>\n      <ion-item-divider color="light" id="trackingSystem-list-item-divider5">\n        Pezzi\n      </ion-item-divider>\n      <ion-item color="none" id="trackingSystem-list-item18">\n        Matricola aaa\n        <ion-note item-right></ion-note>\n      </ion-item>\n      <ion-item color="none" id="trackingSystem-list-item19">\n        Matricola bbb\n        <ion-note item-right></ion-note>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\tracking-system\tracking-system.html"*/
+            selector: 'page-tracking-system',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\tracking-system\tracking-system.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Tracking System\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="pagets">\n  \n  <ion-card>\n      <ion-card-header>\n          Filtri di ricerca\n        </ion-card-header>\n      <ion-card-content>\n          <ion-row>\n            <ion-col col-8>            \n              <ion-input placeholder="Articolo" type="text" [(ngModel)]="search1" name="search1"></ion-input>\n            </ion-col>\n            <ion-col col-4>\n              <ion-input value=" AC" readonly=true type="text"></ion-input>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4>\n              <ion-input value="5076750-" readonly=true type="text"></ion-input>\n            </ion-col>\n            <ion-col col-8>\n              <ion-input placeholder="Lotto" type="text" [(ngModel)]="search2" name="search2"></ion-input>\n            </ion-col>\n        </ion-row>      \n        <button ion-button outline block (click)="getdata(search1,search2)">Ricerca</button>\n    \n    </ion-card-content>  \n</ion-card>\n  <ion-list ion-item text-wrap *ngFor="let item of items">\n            <h2>Lotto: {{item.cod_lotto}}</h2>\n            <h3>Articolo: {{item.cod_articolo}}</h3>\n            <p>Descrizione: {{item.descr_articolo}}</p>\n            <p>Data emissione: {{item.data_emissione}}</p>\n            <p>Qta prevista: {{item.qta_prevista}}</p>\n            <p>Qta prodotta: {{item.qta_prodotta}}</p>\n            <p>Qta residua: {{item.qta_residua}}</p>\n            <p>Qta scartata: {{item.qta_scartata}}</p>\n  </ion-list>            \n      <ion-item-group>\n      <ion-item-divider color="light">Documenti scaricabili</ion-item-divider>\n      <button ion-item text-wrap *ngFor="let documento of documenti" (click)="scaricaFile(documento)">\n              <ion-icon item-start *ngIf = "documento.estensione === \'pdf\'" name="document"></ion-icon>\n              <ion-icon item-start *ngIf = "documento.estensione != \'pdf\'" name="image"></ion-icon>\n              {{documento.nome}}\n      </button>        \n    </ion-item-group>\n    <ion-item-group>\n      <ion-item-divider color="light">Pezzi prodotti</ion-item-divider>    \n      <ion-item ion-item text-wrap *ngFor="let matricola of matricole">\n              <h2>{{matricola.matricola}}</h2>\n              <p>{{matricola.stato}}</p>\n              <p *ngIf = "matricola.stato == \'Venduta\'">Cliente: {{matricola.cliente}}</p>\n      </ion-item>  \n    </ion-item-group>           \n\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\tracking-system\tracking-system.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _f || Object])
     ], TrackingSystemPage);
     return TrackingSystemPage;
-    var _a;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=tracking-system.js.map
@@ -139,8 +206,8 @@ var TrackingSystemPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CertificatiPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(113);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -242,8 +309,8 @@ var CertificatiPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MagazzinoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__articolo_articolo__ = __webpack_require__(202);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -343,9 +410,8 @@ var MagazzinoPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArticoloPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_email_composer__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(32);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -360,22 +426,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ArticoloPage = (function () {
-    function ArticoloPage(navCtrl, params, enumeraService, emailComposer) {
+    function ArticoloPage(navCtrl, params, enumeraService, alertCtrl) {
         this.navCtrl = navCtrl;
         this.params = params;
         this.enumeraService = enumeraService;
-        this.emailComposer = emailComposer;
+        this.alertCtrl = alertCtrl;
         this.items_details = 0;
         this.item = params.get('item');
         this.enumeraService.requestStr = 'prgname=getArticolo&param[codice]=' + this.item.CODART;
         this.enumeraService.doRequest();
         this.getdata();
-        this.emailComposer.isAvailable().then(function (available) {
-            if (available) {
-                //Now we know we can send
-                alert("ok posso mandare mail");
-            }
-        });
     }
     ArticoloPage.prototype.getdata = function () {
         var _this = this;
@@ -388,21 +448,38 @@ var ArticoloPage = (function () {
         });
     };
     ArticoloPage.prototype.prenotaMatricola = function (item) {
-        var email = {
-            to: 'support@ltamirasoftware.com',
-            cc: 'support@ltamirasoftware.com',
-            subject: 'Richiesta prenotazione matricola',
-            body: "Ciao Ciao",
-            isHtml: true
-        };
-        // Send a text message using default options
-        this.emailComposer.open(email);
+        var _this = this;
+        this.enumeraService.requestStr = 'prgname=prenotaMatricola&param[idmatricola]=' + item.matricola;
+        this.enumeraService.doRequest();
+        this.enumeraService.getDataSet().subscribe(function (result) {
+            if (result != null) {
+                if (result["status"] != 'NACK') {
+                    _this.presentAlert("Invio email", "La sua richiesta è stata registrata con successo. A breve sarete contattati dal customers service");
+                }
+                else {
+                    _this.presentAlert("Attenzione", "La sua richiesta non è andata a buon fine. Contattare il customer service");
+                }
+            }
+        }, function (err) {
+            console.error("Error : " + err);
+            _this.presentAlert("Invio email", "Errore sistema");
+        }, function () {
+            console.log('getData completed');
+        });
+    };
+    ArticoloPage.prototype.presentAlert = function (titolo, messaggio) {
+        var alert = this.alertCtrl.create({
+            title: titolo,
+            subTitle: messaggio,
+            buttons: ['Ok']
+        });
+        alert.present();
     };
     ArticoloPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\articolo\articolo.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      {{item.CODART}}\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n<ion-card>\n\n\n\n\n\n\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        {{item.CODART}}\n\n      \n\n      <p>\n\n        {{item.DESCRIZIONE}}\n\n      </p>\n\n      <p>Categoria: {{item.DESCRIZIONE_CATEGORIA}}</p>\n\n      <p>Gruppo: {{item.DESCRIZIONE_GRUPPO}}</p>\n\n      <p>Sottogruppo: {{item.DESCRIZIONE_SOTTOGRUPPO}}</p>      \n\n      <p>Classe: {{item.DESCRIZIONE_CLASSE}}</p>      \n\n      <p>Marca: {{item.DESCRIZIONE_MARCA}}</p>\n\n      </ion-card-title>\n\n    \n\n    </ion-card-content>\n\n    <img src="{{item.IMAGE_URL}}" imageViewer />\n\n    <ion-list >\n\n      <ion-list-header>Pezzi disponibili</ion-list-header>\n\n      <ion-spinner name="circles" *ngIf = "items_details === 0"></ion-spinner>\n\n      <ion-item text-wrap *ngFor="let itemd of items_details" >\n\n        <ion-row>\n\n          <ion-col width-80><h2>{{itemd.matricola}}</h2>\n\n          <p>Dimensioni: {{itemd.dimensioni}}</p>\n\n          <p>Giacenza: {{itemd.giacenza}}</p>\n\n          <button ion-button (click)="prenotaMatricola(itemd)">Prenota\n\n            </button>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\articolo\articolo.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\articolo\articolo.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      {{item.CODART}}\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n<ion-card>\n\n\n\n\n\n\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        {{item.CODART}}\n\n      \n\n      <p>\n\n        {{item.DESCRIZIONE}}\n\n      </p>\n\n      <p>Categoria: {{item.DESCRIZIONE_CATEGORIA}}</p>\n\n      <p>Gruppo: {{item.DESCRIZIONE_GRUPPO}}</p>\n\n      <p>Sottogruppo: {{item.DESCRIZIONE_SOTTOGRUPPO}}</p>      \n\n      <p>Classe: {{item.DESCRIZIONE_CLASSE}}</p>      \n\n      <p>Marca: {{item.DESCRIZIONE_MARCA}}</p>\n\n      </ion-card-title>\n\n    \n\n    </ion-card-content>\n\n    <img src="{{item.IMAGE_URL}}" imageViewer />\n\n    <ion-list>\n\n      <ion-list-header>Pezzi disponibili</ion-list-header>\n\n      <ion-spinner name="circles" *ngIf = "items_details === 0"></ion-spinner>\n\n      <ion-item text-wrap *ngFor="let itemd of items_details" >\n\n        <ion-list>\n\n          <ion-col width-80><h2>{{itemd.matricola}}</h2>\n\n          <p>Dimensioni: {{itemd.dimensioni}}</p>\n\n          <p>Giacenza: {{itemd.giacenza}}</p>\n\n          <button ion-button (click)="prenotaMatricola(itemd)">Richiedi disponibilità\n\n            </button>\n\n          </ion-col>\n\n        </ion-list>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\articolo\articolo.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_email_composer__["a" /* EmailComposer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_email_composer__["a" /* EmailComposer */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
     ], ArticoloPage);
     return ArticoloPage;
     var _a, _b, _c, _d;
@@ -412,13 +489,13 @@ var ArticoloPage = (function () {
 
 /***/ }),
 
-/***/ 204:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MatricolaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -448,14 +525,14 @@ var MatricolaPage = (function () {
 
 /***/ }),
 
-/***/ 205:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -527,13 +604,13 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 206:
+/***/ 205:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(229);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -541,7 +618,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 230:
+/***/ 229:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -549,19 +626,19 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tracking_system_tracking_system__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_certificati_certificati__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_magazzino_magazzino__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_articolo_articolo__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_matricola_matricola__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_matricola_matricola__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_status_bar__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_email_composer__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_email_composer__ = __webpack_require__(281);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -633,22 +710,22 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 280:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_enumera_request__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_enumera_request__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tracking_system_tracking_system__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_certificati_certificati__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_magazzino_magazzino__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_matricola_matricola__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_matricola_matricola__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -757,14 +834,14 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 40:
+/***/ 32:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EnumeraService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(280);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -810,5 +887,5 @@ var EnumeraService = (function () {
 
 /***/ })
 
-},[206]);
+},[205]);
 //# sourceMappingURL=main.js.map
