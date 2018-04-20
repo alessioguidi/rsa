@@ -568,6 +568,7 @@ var HomePage = (function () {
         this.enumeraService.getDataSet().subscribe(function (result) {
             _this.testi = result;
             _this.testo_home = _this.testi[0].TESTO;
+            _this.cliente = _this.testi[0].CLIENTE;
         }, function (err) {
             console.error("Error : " + err);
         }, function () {
@@ -603,11 +604,12 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Home\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding id="page1">\n    <h2>RS</h2><p>Benvenuto nella nuova APP dedicata ai clienti di RS ACCIAI</p>\n    <ion-slides pager>\n      <ion-slide *ngFor="let slide of slides"> \n        <img src="{{slide.URL}}" class="slide-image">\n      </ion-slide>\n    </ion-slides>\n    <p>{{testo_home}}</p>\n</ion-content>\n\n'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Home\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding id="page1">\n    <h2>RS</h2>\n    <h3>{{cliente}}</h3>\n    <p>Benvenuto nella nuova APP dedicata ai clienti di RS ACCIAI</p>\n    <ion-slides pager>\n      <ion-slide *ngFor="let slide of slides"> \n        <img src="{{slide.URL}}" class="slide-image">\n      </ion-slide>\n    </ion-slides>\n    <p>{{testo_home}}</p>\n</ion-content>\n\n'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]) === "function" && _d || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home.js.map
