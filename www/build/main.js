@@ -74,7 +74,7 @@ var MatricolaPage = (function () {
         alert.present();
     };
     MatricolaPage.prototype.scaricaFile = function (documento) {
-        var browser2 = this.inappbrowser.create(documento.url, '_system', 'location:yes');
+        var browser = this.inappbrowser.create(documento.url, '_system', 'location:yes');
         console.log(documento.url);
     };
     MatricolaPage = __decorate([
@@ -277,7 +277,7 @@ var TrackingSystemPage = (function () {
         alert.present();
     };
     TrackingSystemPage.prototype.scaricaFile = function (documento) {
-        var browser = this.inappbrowser.create(documento.url, '_system', 'location:yes');
+        var browser = this.inappbrowser.create(documento.url, '_blank', 'location:yes');
     };
     TrackingSystemPage.prototype.vediMatricola = function (item) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__matricola_matricola__["a" /* MatricolaPage */], { item: item });
@@ -286,10 +286,9 @@ var TrackingSystemPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-tracking-system',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\tracking-system\tracking-system.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Tracking System\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="pagets">\n  \n  <ion-card>\n      <ion-card-header>\n          Filtri di ricerca\n        </ion-card-header>\n      <ion-card-content>\n        <ion-item>\n          <ion-label stacked>Codice articolo(*)</ion-label>\n          <ion-input type="text" required [(ngModel)]="prodotto" name="prodotto"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label stacked>Versione(*)</ion-label>\n          <ion-input type="text" required [(ngModel)]="versione" name="versione"></ion-input>\n        </ion-item>  \n        <ion-item>\n          <ion-label stacked>Produttore</ion-label>\n          <ion-input value="5030935" readonly=true type="text"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label stacked>Lotto(*)</ion-label>\n          <ion-input type="text" required [(ngModel)]="lotto" name="lotto"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label stacked>Matricola</ion-label>\n          <ion-input type="text" [(ngModel)]="matricola" name="matricola"></ion-input>\n        </ion-item>    \n        <button ion-button block (click)="getdata(prodotto,versione,lotto,matricola)">Ricerca</button>                                \n    </ion-card-content>  \n</ion-card>\n  <ion-list ion-item text-wrap *ngFor="let item of items">\n            <h2>Lotto: {{item.cod_lotto}}</h2>\n            <h3>Articolo: {{item.cod_articolo}}</h3>\n            <p>Descrizione: {{item.descr_articolo}}</p>\n            <p>Data emissione: {{item.data_emissione}}</p>\n            <p>Qta prevista: {{item.qta_prevista}}</p>\n            <p>Qta prodotta: {{item.qta_prodotta}}</p>\n            <p>Qta residua: {{item.qta_residua}}</p>\n            <p>Qta scartata: {{item.qta_scartata}}</p>\n  </ion-list>            \n      <ion-item-group>\n      <ion-item-divider color="light">Documenti scaricabili</ion-item-divider>\n      <button ion-item text-wrap *ngFor="let documento of documenti" (click)="scaricaFile(documento)">\n              <ion-icon item-start *ngIf = "documento.estensione === \'pdf\'" name="document"></ion-icon>\n              <ion-icon item-start *ngIf = "documento.estensione != \'pdf\'" name="image"></ion-icon>\n              {{documento.nome}}\n      </button>        \n    </ion-item-group>\n    <ion-item-group>\n      <ion-item-divider color="light">Pezzi prodotti</ion-item-divider>    \n      <button ion-item ion-item text-wrap *ngFor="let matricola of matricole" (click)="vediMatricola(matricola)">\n              <h2>{{matricola.matricola}}</h2>\n              <p>{{matricola.stato}}</p>\n              <p *ngIf = "matricola.stato == \'Venduta\'">Cliente: {{matricola.cliente}}</p>\n              <ion-badge *ngIf = "matricola.num_allegati > 0" item-end>{{matricola.num_allegati}} allegato/i</ion-badge>\n      </button>  \n    </ion-item-group>           \n\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\tracking-system\tracking-system.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
     ], TrackingSystemPage);
     return TrackingSystemPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=tracking-system.js.map
@@ -376,7 +375,6 @@ var CertificatiPage = (function () {
     };
     CertificatiPage.prototype.download = function (item) {
         var browser = this.inappbrowser.create(item.url, '_system', 'location=yes');
-        console.log(item.url);
     };
     CertificatiPage.prototype.presentAlert = function (titolo, messaggio) {
         var alert = this.alertCtrl.create({
@@ -390,10 +388,9 @@ var CertificatiPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-certificati',template:/*ion-inline-start:"C:\altamira\progetti_ionic\rsa\src\pages\certificati\certificati.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Certificati\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page3">\n  <ion-list id="certificati-list3">\n      <button ion-item text-wrap *ngFor="let item of items" (click)="subDir(item)">\n        \n          <ion-row>\n            <ion-col width-80><h2>{{item.nome}}</h2>\n            <p>{{item.anno}}</p>\n            </ion-col>\n           <ion-col>\n            <ion-badge item-right></ion-badge>\n            </ion-col>\n          </ion-row>\n        </button>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\altamira\progetti_ionic\rsa\src\pages\certificati\certificati.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_enumera_request__["a" /* EnumeraService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], CertificatiPage);
     return CertificatiPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=certificati.js.map
