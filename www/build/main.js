@@ -74,8 +74,11 @@ var MatricolaPage = (function () {
         alert.present();
     };
     MatricolaPage.prototype.scaricaFile = function (documento) {
-        var browser = this.inappbrowser.create(documento.url, '_system', 'location:yes');
-        console.log(documento.url);
+        this.download(documento);
+    };
+    MatricolaPage.prototype.download = function (item) {
+        var browser = this.inappbrowser.create(item.url, '_system', 'location=yes');
+        console.log(item.url);
     };
     MatricolaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
